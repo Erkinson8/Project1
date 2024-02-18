@@ -1,9 +1,6 @@
 public class BankAccount {
     private double amount;
 
-    public BankAccount(double initialAmount) {
-        this.amount = initialAmount;
-    }
 
     public double getAmount() {
         return amount;
@@ -13,11 +10,12 @@ public class BankAccount {
         amount += sum;
     }
 
-    public void withDraw(double sum) throws LimitException {
+    public void withDraw(int sum) throws LimitException {
         if (sum > amount) {
-            throw new LimitException("Запрашиваемая сумма больше остатка на балансе", amount);
+            throw new LimitException("Запрашиваемая сумма больше " +
+                    "остатка на балансе:" , amount);
         }
         amount -= sum;
-
     }
 }
+
